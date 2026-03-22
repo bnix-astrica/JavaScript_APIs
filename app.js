@@ -1,4 +1,4 @@
-const API_KEY = "W2Jo2oNbNzQZou5FhQNNGyxXWeP8DmQ2"; //should move to .env file in production
+const API_KEY = "INSERT_API_KEY_HERE"; //should move to .env file in production
 
 // Exercise 1 Section
 console.log("EXERCISE 1:\n==========\n");
