@@ -45,6 +45,6 @@ function handleSearch() {
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
-      feedback.textContent = "An error occurred while fetching data.";
+      feedback.textContent = error;
     });
 }
