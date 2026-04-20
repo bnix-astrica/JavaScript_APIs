@@ -1,4 +1,4 @@
-const API_KEY = "INSERT_API_KEY_HERE"; //should move to .env file in production
+const API_KEY = "W2Jo2oNbNzQZou5FhQNNGyxXWeP8DmQ2"; //"INSERT_API_KEY_HERE"; //should move to .env file in production
 
 // Exercise 1 Section
 console.log("EXERCISE 1:\n==========\n");
@@ -30,17 +30,18 @@ function handleSearch() {
 
   console.log("searchTerm:", searchTerm);
   const apiKey = API_KEY;
-  const apiUrl = `https://api.giphy.com/v1/gifs/search?q=${encodeURIComponent(searchTerm)}&api_key=${apiKey}&limit=1`;
+  const apiUrl = `https://api.giphy.com/v1/gifs/translate?api_key=${apiKey}&s=${encodeURIComponent(searchTerm)}`;
   fetch(apiUrl)
     .then((response) => response.json())
     .then((data) => {
       console.log("API Response:", data);
-      if (data.data.length > 0) {
-        const gifUrl = data.data[0].images.original.url;
+      if (data.data && data.data.images) {
+        const gifUrl = data.data.images.original.url;
         gifImage.src = gifUrl;
-        feedback.textContent = `Showing results for "${searchTerm}"`;
+        searchInput.value = "";
+        feedback.textContent = "";
       } else {
-        feedback.textContent = `No results found for "${searchTerm}"`;
+        feedback.textContent = `No translate result found for "${searchTerm}"`;
       }
     })
     .catch((error) => {
